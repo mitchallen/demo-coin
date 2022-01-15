@@ -10,47 +10,41 @@ func demoFlip() {
 
 	// Demo Flip()
 
-	a := make([]bool, 100)
+	m := make(map[bool]int)
 
-	heads := 0
-	tails := 0
+	m[true] = 0
+	m[false] = 0
 
-	for i, _ := range a {
-		a[i] = coin.Flip()
-		if a[i] {
-			heads++
-		} else {
-			tails++
-		}
+	for i := 0; i < 100; i++ {
+		m[coin.Flip()]++
 	}
 
-	fmt.Printf("[Flip()] Heads: %d Tails: %d \n", heads, tails)
+	fmt.Print("[Flip]: ")
+	fmt.Println(m)
 }
 
 func demoWeighted() {
 
 	// Demo Weighted(w)
 
-	a := make([]bool, 100)
+	m := make(map[bool]int)
 
-	heads := 0
-	tails := 0
+	m[true] = 0
+	m[false] = 0
 
 	var testWeight float32 = 0.75
 
-	for i, _ := range a {
-		a[i] = coin.Weighted(testWeight)
-		if a[i] {
-			heads++
-		} else {
-			tails++
-		}
+	for i := 0; i < 100; i++ {
+		m[coin.Weighted(testWeight)]++
 	}
 
-	fmt.Printf("[Weight(%.2f)] Heads: %d Tails: %d \n", testWeight, heads, tails)
+	fmt.Printf("[Weight(%.2f)]: ", testWeight)
+	fmt.Println(m)
 }
 
 func main() {
+	fmt.Println()
 	demoFlip()
 	demoWeighted()
+	fmt.Println()
 }
