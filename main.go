@@ -10,10 +10,10 @@ func demoFlip() {
 
 	// Demo Flip()
 
-	m := make(map[bool]int)
-
-	m[true] = 0
-	m[false] = 0
+	m := map[bool]int{
+		true:  0,
+		false: 0,
+	}
 
 	for i := 0; i < 100; i++ {
 		m[coin.Flip()]++
@@ -27,10 +27,10 @@ func demoWeighted() {
 
 	// Demo Weighted(w)
 
-	m := make(map[bool]int)
-
-	m[true] = 0
-	m[false] = 0
+	m := map[bool]int{
+		true:  0,
+		false: 0,
+	}
 
 	var testWeight float32 = 0.75
 
